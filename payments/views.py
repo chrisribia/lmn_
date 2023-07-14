@@ -37,4 +37,4 @@ def lipa_na_mpesa_online(request):
         "TransactionDesc": "Django Shop stk push"
     }
     response = requests.post(api_url, json=request, headers=headers)
-    return HttpResponse('success')
+    return HttpResponse(response)
