@@ -46,12 +46,13 @@ def register_urls(request):
     access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     headers = {"Authorization": "Bearer %s" % access_token}
-    options = {"ShortCode": LipanaMpesaPpassword.Business_short_code,
+    options = {"ShortCode": LipanaMpesaPpassword.Test_c2b_shortcode,
                "ResponseType": "Completed",
                "ConfirmationURL": "https://git.heroku.com/api/v1/shoping.git/c2b/confirmation",
                "ValidationURL": "https://git.heroku.com/shoping.git/api/v1/c2b/validation"}
     response = requests.post(api_url, json=options, headers=headers)
     return HttpResponse(response.text)
+
 @csrf_exempt
 def call_back(request):
     pass
