@@ -29,12 +29,12 @@ def lipa_na_mpesa_online(request):
         "Timestamp": LipanaMpesaPpassword.lipa_time,
         "TransactionType": "CustomerPayBillOnline",
         "Amount": 1,
-        "PartyA": 254728851119,  # replace with your phone number to get stk push
-        "PartyB": LipanaMpesaPpassword.Business_short_code,
-        "PhoneNumber": 254728851119,  # replace with your phone number to get stk push
+        "PartyA": 254714577324,  # replace with your phone number to get stk push
+        "PartyB": 600000,
+        "PhoneNumber": 254714577324,  # replace with your phone number to get stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
-        "AccountReference": "Henry",
-        "TransactionDesc": "Testing stk push"
+        "AccountReference": "Christopher ribia",
+        "TransactionDesc": "Django Shop stk push"
     }
     response = requests.post(api_url, json=request, headers=headers)
     return HttpResponse('success')
