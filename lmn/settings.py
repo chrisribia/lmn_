@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*','https://git.heroku.com/shoping.git']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'mpesa',
     'payments.apps.PaymentsConfig',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
