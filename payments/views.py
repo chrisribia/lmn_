@@ -48,8 +48,8 @@ def register_urls(request):
     headers = {"Authorization": "Bearer %s" % access_token}
     options = {"ShortCode": LipanaMpesaPpassword.Business_short_code,
                "ResponseType": "Completed",
-               "ConfirmationURL": "https://git.heroku.com/shoping.git/c2b/confirmation",
-               "ValidationURL": "https://git.heroku.com/shoping.git/c2b/validation"}
+               "ConfirmationURL": "https://git.heroku.com/api/v1/shoping.git/c2b/confirmation",
+               "ValidationURL": "https://git.heroku.com/shoping.git/api/v1/c2b/validation"}
     response = requests.post(api_url, json=options, headers=headers)
     return HttpResponse(response.text)
 @csrf_exempt
