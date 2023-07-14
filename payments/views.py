@@ -4,6 +4,13 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 
 # Create your views here.
 
@@ -38,3 +45,5 @@ def lipa_na_mpesa_online(request):
     }
     response = requests.post(api_url, json=request, headers=headers)
     return HttpResponse(response)
+
+ 
