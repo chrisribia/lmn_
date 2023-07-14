@@ -30,7 +30,7 @@ def lipa_na_mpesa_online(request):
         "TransactionType": "CustomerPayBillOnline",
         "Amount": 1,
         "PartyA": 254714577324,  # replace with your phone number to get stk push
-        "PartyB": 600000,
+        "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber": 254714577324,  # replace with your phone number to get stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "Christopher ribia",
