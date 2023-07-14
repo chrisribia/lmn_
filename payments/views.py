@@ -51,7 +51,7 @@ def register_urls(request):
                "ConfirmationURL": "https://git.heroku.com/api/v1/shoping.git/c2b/confirmation",
                "ValidationURL": "https://git.heroku.com/shoping.git/api/v1/c2b/validation"}
     response = requests.post(api_url, json=options, headers=headers)
-    return HttpResponse(response.text)
+    return HttpResponse(response)
 
 @csrf_exempt
 def call_back(request):
