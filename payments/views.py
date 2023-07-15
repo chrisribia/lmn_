@@ -88,5 +88,6 @@ def confirmation(request):
         "ResultCode": 0,
         "ResultDesc": "Accepted"
     }
-    return HttpResponse(mpesa_payment)
+    response = requests.post(api_url, json=request, headers=headers)
+    return HttpResponse(response.text)
  
