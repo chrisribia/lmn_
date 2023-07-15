@@ -85,5 +85,5 @@ def confirmation(request):
         "ResultCode": 0,
         "ResultDesc": "Accepted"
     }
-    return JsonResponse(dict(context))
+    return HttpResponse(mpesa_payment)
  
