@@ -15,7 +15,8 @@ def home(request):
 
 
 def getAccessToken(request):
-    consumer_key = 'ifeyg8caeO1616qZgFbiZ483PGuflCy1'
+    #consumer_key = 'ifeyg8caeO1616qZgFbiZ483PGuflCy1'
+    access_token = MpesaAccessToken.validated_mpesa_access_token
     consumer_secret = 'gpoloXGtKliI8HqS'
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
@@ -23,7 +24,8 @@ def getAccessToken(request):
     validated_mpesa_access_token = mpesa_access_token['access_token']
     return HttpResponse(validated_mpesa_access_token)
 def lipa_na_mpesa_online(request):
-    access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
+   # access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
+    access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = {"Authorization": "Bearer %s" % access_token}
     request = {
@@ -43,7 +45,8 @@ def lipa_na_mpesa_online(request):
     return HttpResponse(response)
 @csrf_exempt
 def register_urls(request):
-    access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
+    #access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
+    access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     headers = {"Authorization": "Bearer %s" % access_token}
     options = {"ShortCode": LipanaMpesaPpassword.Test_c2b_shortcode,
