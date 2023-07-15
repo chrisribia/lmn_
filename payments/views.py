@@ -67,18 +67,20 @@ def validation(request):
 def confirmation(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
-    payment = MpesaPayment(
-        first_name=mpesa_payment['FirstName'],
-        last_name=mpesa_payment['LastName'],
-        middle_name=mpesa_payment['MiddleName'],
-        description=mpesa_payment['TransID'],
-        phone_number=mpesa_payment['MSISDN'],
-        amount=mpesa_payment['TransAmount'],
-        reference=mpesa_payment['BillRefNumber'],
-        organization_balance=mpesa_payment['OrgAccountBalance'],
-        type=mpesa_payment['TransactionType'],
+ 
+    payment = MpesaPayment.objects.create(
+    first_name=mpesa_payment['FirstName'],
+    last_name=mpesa_payment['LastName'],
+    middle_name=mpesa_payment['MiddleName'],
+    description=mpesa_payment['TransID'],
+    phone_number=mpesa_payment['MSISDN'],
+    amount=mpesa_payment['TransAmount'],
+    reference=mpesa_payment['BillRefNumber'],
+    organization_balance=mpesa_payment['OrgAccountBalance'],
+    type=mpesa_payment['TransactionType'],
     )
     payment.save()
+ 
     context = {
         "ResultCode": 0,
         "ResultDesc": "Accepted"
