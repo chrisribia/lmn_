@@ -42,7 +42,7 @@ def lipa_na_mpesa_online(request):
     response = requests.post(api_url, json=request, headers=headers)
     return HttpResponse(response)
 @csrf_exempt
-def register_urls(
+def register_urls(request):
     access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
     api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     headers = {"Authorization": "Bearer %s" % access_token}
