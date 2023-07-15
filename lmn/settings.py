@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-la#g^z!@a0(i-0sc11wvt5*#2_8_4_+-s(+bix9!cpw)$2w0wg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','https://git.heroku.com/shoping.git']
+ALLOWED_HOSTS = ['*','git.heroku.com/shoping.git','www.acaciatransportation.com']
 
 
 # Application definition
