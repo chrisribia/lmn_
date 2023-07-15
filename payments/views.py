@@ -23,7 +23,7 @@ def getAccessToken(request):
     validated_mpesa_access_token = mpesa_access_token['access_token']
     return HttpResponse(validated_mpesa_access_token)
 def lipa_na_mpesa_online(request):
-    access_token = MpesaAccessToken.validated_mpesa_access_token
+    access_token = "w5AJAAlyt56wvO0mK8lbQmJiTxfZ"
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = {"Authorization": "Bearer %s" % access_token}
     request = {
