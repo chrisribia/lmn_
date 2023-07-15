@@ -9,7 +9,7 @@ from .models import MpesaPayment
 from django.http import HttpResponse, JsonResponse
  
 # Create your views here.
-access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
+
 def home(request):
     return render(request, 'home.html')
 
@@ -23,7 +23,7 @@ def getAccessToken(request):
     validated_mpesa_access_token = mpesa_access_token['access_token']
     return HttpResponse(validated_mpesa_access_token)
 def lipa_na_mpesa_online(request):
-    
+    access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = {"Authorization": "Bearer %s" % access_token}
     request = {
@@ -43,7 +43,7 @@ def lipa_na_mpesa_online(request):
     return HttpResponse(response)
 @csrf_exempt
 def register_urls(
-    
+    access_token = "MH9VMg0B8FXa61EbgMx1nW2GCs8N"
     api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     headers = {"Authorization": "Bearer %s" % access_token}
     options = {"ShortCode": LipanaMpesaPpassword.Test_c2b_shortcode,
