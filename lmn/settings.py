@@ -32,8 +32,7 @@ ALLOWED_HOSTS = ['*','git.heroku.com/shoping.git','www.acaciatransportation.co']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'mpesa',
+    'django.contrib.auth',    
     'payments.apps.PaymentsConfig',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
