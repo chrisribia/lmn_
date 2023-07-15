@@ -42,8 +42,8 @@ def lipa_na_mpesa_online(request):
     response = requests.post(api_url, json=request, headers=headers)
     return HttpResponse(response)
 @csrf_exempt
-def register_urls(request):
-    access_token = MpesaAccessToken.validated_mpesa_access_token
+def register_urls(
+    request access_token = "w5AJAAlyt56wvO0mK8lbQmJiTxfZ"
     api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     headers = {"Authorization": "Bearer %s" % access_token}
     options = {"ShortCode": LipanaMpesaPpassword.Test_c2b_shortcode,
