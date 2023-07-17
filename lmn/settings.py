@@ -127,10 +127,5 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
-
-sentry_sdk.init(
-    dsn='https://6c4aee19c2f24687885882e015c9de13@sentry.io/1777995',
-    integrations=[DjangoIntegration()]
-)
+ 
+ 
