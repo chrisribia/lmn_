@@ -133,10 +133,11 @@ def checkout(request):
         # You can customize this part based on your requirements
         if response.status_code == 200:
             # Payment successful, show a success message
+         
             return HttpResponse("Payment successful!")
         else:
             # Payment failed, show an error message
             return HttpResponse("Payment failed!")
 
     # Render the checkout template with the product details
-    return render(request, 'home.html', {'product': product})
+    return render(request, 'home.html')
