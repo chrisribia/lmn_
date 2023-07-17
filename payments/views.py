@@ -120,7 +120,7 @@ def checkout(request):
             'Timestamp': timestamp,
             'TransactionType': 'CustomerPayBillOnline',
             'Amount': 1,
-            'PartyA': 254714577324',
+            'PartyA': 254714577324,
             'PartyB': LipanaMpesaPpassword.Business_short_code,
             'PhoneNumber': 254714577324,
             'CallBackURL': 'https://example.com/callback',
