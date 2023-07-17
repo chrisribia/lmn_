@@ -71,7 +71,7 @@ def confirmation(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
  
-    payment = MpesaPayment.objects.create(
+    payment = MpesaPayment(
     first_name=mpesa_payment['FirstName'],
     last_name=mpesa_payment['LastName'],
     middle_name=mpesa_payment['MiddleName'],
