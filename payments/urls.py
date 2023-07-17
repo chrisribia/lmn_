@@ -4,8 +4,8 @@ from .views import  home,getAccessToken,lipa_na_mpesa_online,register_urls,confi
 
 urlpatterns = [
     path('name/', home, name='name'),  
-    path('token', lipa_na_mpesa_online, name='token'),
-    path('lmn', checkout, name='lmn'),    
+    path('token', getAccessToken, name='token'),
+    path('lmn', lipa_na_mpesa_online, name='lmn'),    
 
     # register, confirmation, validation and callback urls
     path('register', register_urls, name="register"),
