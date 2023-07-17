@@ -8,7 +8,7 @@ from .models import MpesaPayment
 from django.shortcuts import render
 
 def home(request):
-    return render(template_name="home.html")
+    return render( request, template_name="home.html")
 def getAccessToken(request):
     consumer_key = 'ifeyg8caeO1616qZgFbiZ483PGuflCy1'
     consumer_secret = 'gpoloXGtKliI8HqS'
