@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-la#g^z!@a0(i-0sc11wvt5*#2_8_4_+-s(+bix9!cpw)$2w0wg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','git.heroku.com/shoping.git','www.acaciatransportation.co']
+ALLOWED_HOSTS = [ '127.0.0.1','localhost','git.heroku.com/shoping.git','www.acaciatransportation.co']
 
 
 # Application definition
@@ -127,3 +127,10 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn='https://6c4aee19c2f24687885882e015c9de13@sentry.io/1777995',
+    integrations=[DjangoIntegration()]
+)
