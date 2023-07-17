@@ -33,7 +33,7 @@ def lipa_na_mpesa_online(request):
         "PartyA": 254714577324,  # replace with your phone number to get stk push
         "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber": 254714577324,  # replace with your phone number to get stk push
-        "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
+        "CallBackURL": "http://www.acaciatransportation.co/api/v1/c2b/confirmation/",
         "AccountReference": "Chrisribia",
         "TransactionDesc": "Testing stk push"
     }
