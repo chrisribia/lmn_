@@ -3,7 +3,7 @@ from .views import  home,getAccessToken,lipa_na_mpesa_online,register_urls,confi
 
 
 urlpatterns = [
-    path('', home, name=''),  
+    path('name/', home, name='name'),  
     path('token', getAccessToken, name='token'),
     path('lmn', lipa_na_mpesa_online, name='lmn'),    
 
