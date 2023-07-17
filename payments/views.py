@@ -5,6 +5,7 @@ import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
 from .models import MpesaPayment
+from django.shortcuts import render
 
 def home(request):
     return render("home.html")
