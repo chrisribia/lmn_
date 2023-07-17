@@ -89,5 +89,5 @@ def confirmation(request):
         "ResultDesc": "Accepted"
     }
     response = requests.post(api_url, json=request, headers=headers)
-      return HttpResponse(json.dumps({"ResultCode": 0, "ResultDesc": "Callback received."}), content_type="application/json")
+    return HttpResponse(json.dumps({"ResultCode": 0, "ResultDesc": "Callback received."}), content_type="application/json")
  
