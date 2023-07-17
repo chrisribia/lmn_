@@ -91,3 +91,51 @@ def confirmation(request):
     response = requests.post(api_url, json=request, headers=headers)
     return HttpResponse(json.dumps({"ResultCode": 0, "ResultDesc": "Callback received."}), content_type="application/json")
  
+def checkout(request):
+    # Retrieve the selected product     
+
+    if request.method == 'POST':
+        # Base64 encode the consumer_key and consumer_secret
+        consumer_key = 'YOUR_CONSUMER_KEY'
+        consumer_secret = 'YOUR_CONSUMER_SECRET'
+        encoded_key_secret = base64.b64encode(f"{consumer_key}:{consumer_secret}".encode()).decode()
+
+        # Generate a token to access the API
+        access_token_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+        headers = {'Authorization': f'Basic {encoded_key_secret}'}
+        response = requests.get(access_token_url, headers=headers)
+        access_token = response.json()['access_token']
+
+        # Make a transaction
+        transaction_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
+        headers = {
+            'Authorization': f'Bearer {access_token}',
+            'Content-Type': 'application/json'
+        }
+        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        transaction_payload = {
+            'BusinessShortCode':LipanaMpesaPpassword.Business_short_code',
+            'Password': base64.b64encode(f'{YOUR_SHORTCODE_PASSKEY}{timestamp}'.encode()).decode(),
+            'Timestamp': timestamp,
+            'TransactionType': 'CustomerPayBillOnline',
+            'Amount': str(product.price),
+            'PartyA': '254714577324',
+            'PartyB': LipanaMpesaPpassword.Business_short_code,
+            'PhoneNumber': 254714577324,
+            'CallBackURL':  "https://sandbox.safaricom.co.ke/mpesa/",
+            'AccountReference': 'YOUR_REFERENCE',
+            'TransactionDesc': f'Purchase of {product.name}'
+        }
+        response = requests.post(transaction_url, json=transaction_payload, headers=headers)
+       
+        # Handle the response from the API
+        # You can customize this part based on your requirements
+        if response.status_code == 200:
+            # Payment successful, show a success message
+            return HttpResponse("Payment successful!")
+        else:
+            # Payment failed, show an error message
+            return HttpResponse("Payment failed!")
+
+    # Render the checkout template with the product details
+    return render(request, 'home.html', {'product': product})
