@@ -8,8 +8,8 @@ from .models import MpesaPayment
 
 
 def getAccessToken(request):
-    consumer_key = 'cHnkwYIgBbrxlgBoneczmIJFXVm0oHky'
-    consumer_secret = '2nHEyWSD4VjpNh2g'
+    consumer_key = 'ifeyg8caeO1616qZgFbiZ483PGuflCy1'
+    consumer_secret = 'gpoloXGtKliI8HqS'
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
