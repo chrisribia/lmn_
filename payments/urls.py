@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import  home,getAccessToken,lipa_na_mpesa_online,register_urls,confirmation,validation,call_back,checkout
+from .views import  home,getAccessToken,lipa_na_mpesa_online,register_urls,confirmation,validation,call_back
 
 
 urlpatterns = [
     path('name/', home, name='name'),  
-    path('token', getAccessToken, name='token'),
+    path('token', lipa_na_mpesa_online, name='token'),
     path('lmn', checkout, name='lmn'),    
 
     # register, confirmation, validation and callback urls
