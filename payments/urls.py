@@ -4,7 +4,7 @@ from .views import  home,getAccessToken,lipa_na_mpesa_online,register_urls,confi
 
 urlpatterns = [
     path('', home, name='home'),  
-    path('access/token', getAccessToken, name='get_mpesa_access_token'),
+    path('token', getAccessToken, name='token'),
     path('lmn', lipa_na_mpesa_online, name='lmn'),    
 
     # register, confirmation, validation and callback urls
