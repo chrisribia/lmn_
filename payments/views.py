@@ -34,7 +34,7 @@ def lipa_na_mpesa_online(request):
         "PartyA": 254714577324,  # replace with your phone number to get stk push
         "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber": 254714577324,  # replace with your phone number to get stk push
-        "CallBackURL": "http://www.acaciatransportation.co/api/v1/c2b/confirmation/",
+        "CallBackURL": "https://shoping-d626bf42841e.herokuapp.com/api/v1/c2b/confirmation/",
         "AccountReference": "Chrisribia",
         "TransactionDesc": "Testing stk push"
     }
@@ -50,8 +50,8 @@ def register_urls(request):
     headers = {"Authorization": "Bearer %s" % access_token}
     options = {"ShortCode": LipanaMpesaPpassword.Test_c2b_shortcode,
                "ResponseType": "Completed",
-               "ConfirmationURL": "http://www.acaciatransportation.co/api/v1/c2b/confirmation",
-               "ValidationURL": "http://www.acaciatransportation.co/api/v1/c2b/validation"}
+               "ConfirmationURL": "https://shoping-d626bf42841e.herokuapp.com/api/v1/c2b/confirmation",
+               "ValidationURL": "https://shoping-d626bf42841e.herokuapp.com/api/v1/c2b/validation"}
     response = requests.post(api_url, json=options, headers=headers)
 
     return HttpResponse(response.text)
