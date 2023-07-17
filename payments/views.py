@@ -6,7 +6,8 @@ from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
 from .models import MpesaPayment
 
-
+def home(request):
+    return render("home.html")
 def getAccessToken(request):
     consumer_key = 'ifeyg8caeO1616qZgFbiZ483PGuflCy1'
     consumer_secret = 'gpoloXGtKliI8HqS'
